@@ -1,1 +1,20 @@
-<p>listado works!</p>
+<p>Listado de héroes</p>
+<!-- mat-divider : hace una división similar a la etiqueta <hr> -->
+<mat-divider></mat-divider>
+<br>
+
+<!-- fxLayout : Estilo del Angular Flex ya instalado  -->
+<!-- row : Estilo de en una sola row/fila-->
+<!-- fxLayout.xs="column" : Cuando la pantalla sea muy pequeña cambirá el estilo de "row" a una sola columna -->
+<!-- wrap : Estilo para saltarse de línea cuando ya no quepa en la pantalla -->
+<!-- fxLayoutAlign : Indica que los hijos de este elemento estén elineados al centro/center -->
+<!-- fxLayoutGap : Añade en pixeles un espacio horizontal -->
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
+    <!-- fxFlex="30" : Indica qué tan grande queramos que sea cada tarjeta. En este caso cada tarjeta el 20% de la fila -->
+    <!-- fxFlex.lg="15" : Tomará el 15% de la fila para resoluciones grandes -->
+    <div fxFlex="20" fxFlex.lg="15" fxFlex.sm="30" *ngFor="let heroe of heroes">
+        <app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
+    </div>
+
+</div>

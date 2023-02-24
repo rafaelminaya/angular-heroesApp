@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Estilo propio, usado en el botón logout, para tomar todo el espacio que quede restante empujándolo a los bordes */
+.spacer {
+    flex: 1 1 auto;
+}

@@ -1,2 +1,47 @@
-<h1>HeroesApp</h1>
-<router-outlet></router-outlet>
+<!-- fullscreen : Atributo para indicar que el elemento estará en toda la pantalla -->
+<mat-sidenav-container fullscreen>
+    <!-- #sidenav : Referencia local. Lo usaremos para manipular el togle del "sidnav" para ocultar o mostarr el sidenav -->
+    <!-- mode="push" : Para que la barra laterial haga un efecto de empujar -->
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="primary">
+            <span>Menú</span>
+            <!-- spacer : Definido en el archivo de estilos global "styles.css" -->
+            <span class="spacer"></span>
+
+            <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon> </button>
+        </mat-toolbar>
+        <!-- Escribimos de esta forma las rutas, ya que actualmente estamos en la ruta http://localhost:4200/heroes -->
+        <mat-nav-list>
+            <!--  mat-list-item : Estilo de material para el item de un listado -->
+            <!-- <mat-icon>  : Permite añadir un icono según la lista de íconos : https://fonts.google.com/icons?selected=Material+Icons -->
+            <!--  mat-list-icon : Indica a Angular material que es un icono e la lista, para poder haya un separación,similar a un padding -->
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Héroes</span>
+            </a>
+            <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Añadir héroe</span>
+            </a>
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar héroe</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <!-- mat-toolbar : Componente que también usado dentro de un <mat-drawer-container> -->
+    <mat-toolbar>
+        <!-- sidenav.toggle() : sidenav será la referencia local previmanete declarada y "toggle()" es un método propio de un "sidenav" para mostrarlo  -->
+        <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon> </button>
+        <!-- spacer : Definido en el archivo de estilos global "styles.css" -->
+        <span class="spacer"></span>
+
+        <button mat-button>Logout</button>
+    </mat-toolbar>
+
+    <!-- container : Clase personalizada, dentro del atributo de estilos del componente "HomeComponent" -->
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>

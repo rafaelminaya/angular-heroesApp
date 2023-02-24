@@ -4,6 +4,7 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeroeComponent } from './pages/heroe/heroe.component';
 
 const routes: Routes = [
   {
@@ -19,12 +20,16 @@ const routes: Routes = [
         component: AgregarComponent,
       },
       {
-        path: 'editar/:id', // http://localhost:4200/heroes/editar/1
+        path: 'editar/:id', // http://localhost:4200/heroes/editar/dc-batman
         component: AgregarComponent,
       },
       {
         path: 'buscar', // http://localhost:4200/heroes/buscar
         component: BuscarComponent,
+      },
+      {
+        path: ':id', // http://localhost:4200/heroes/dc-batman
+        component: HeroeComponent,
       },
       {
         path: '**',
