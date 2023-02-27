@@ -36,7 +36,8 @@
         <!-- spacer : Definido en el archivo de estilos global "styles.css" -->
         <span class="spacer"></span>
 
-        <button mat-button>Logout</button>
+        <span> {{auth.usuario}} </span>
+        <button mat-button (click)="logout()">Logout</button>
     </mat-toolbar>
 
     <!-- container : Clase personalizada, dentro del atributo de estilos del componente "HomeComponent" -->

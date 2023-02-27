@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 /*
@@ -13,6 +14,12 @@ then():
 - Método necesario ya que el "import()" devuelve una promesa
 - Indicamos la clase del módulo a cargar
 
+canLoad()
+- Evita que alguien cargue el módulo de esta ruta sin antes pasar por el guard "AuthGuard"
+- Se pueden especificar varios guards como un arreglo dentro de cochetes "[]"
+
+canActivate()
+- Evita que alguien además de cargar el módulo de esta ruta también lo active , está por encima en seguridad del "canLoad"
 */
 const routes: Routes = [
   {
@@ -23,6 +30,8 @@ const routes: Routes = [
     path: 'heroes', // http://localhost:4200/heroes
     loadChildren: () =>
       import('./heroes/heroes.module').then((m) => m.HeroesModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: '404',
